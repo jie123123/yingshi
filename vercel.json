@@ -5,6 +5,8 @@
 {
   "rewrites": [
     { "source": "/old-page", "destination": "/new-page" },
-    { "source": "/dianying.html", "destination": "http://uukk6.cn" }
+    { "source": "/dianying", "destination": "http://uukk6.cn" }
   ]
 }
+
+
