@@ -2,7 +2,7 @@
 
 {
   "routes": [
-    { "src": "/index.html", "dest": "http://uukk6.cn" },
+    { "src": "/dianying.html", "dest": "http://uukk6.cn" },
     { "src": "/example", "dest": "https://example.com" }
   ]
 }
