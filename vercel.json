@@ -1,6 +1,8 @@
+
+
 {
-  "rewrites": [
-    { "source": "/old-page", "destination": "/new-page" },
-    { "source": "/index.html", "destination": "http://uukk6.cn" , "status": 200 }
+  "routes": [
+    { "src": "/index.html", "dest": "http://uukk6.cn" },
+    { "src": "/example", "dest": "https://example.com" }
   ]
 }
