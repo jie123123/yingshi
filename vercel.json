@@ -1,8 +1,10 @@
 
 
+
+
 {
-  "routes": [
-    { "src": "/dianying.html", "dest": "http://uukk6.cn" },
-    { "src": "/example", "dest": "https://example.com" }
+  "rewrites": [
+    { "source": "/old-page", "destination": "/new-page" },
+    { "source": "/dianying.html", "destination": "http://uukk6.cn" }
   ]
 }
