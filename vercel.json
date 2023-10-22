@@ -2,11 +2,13 @@
 
 
 
+
 {
-  "rewrites": [
-    { "source": "/old-page", "destination": "/new-page" },
-    { "source": "/dianying", "destination": "http://uukk6.cn" }
+  "routes": [
+    {
+      "src": "/dianying",
+      "headers": { "Location": "http://uukk6.cn" },
+      "status": 307
+    }
   ]
 }
-
-
