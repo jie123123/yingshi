@@ -6,7 +6,7 @@
 {
   "routes": [
     {
-      "src": "/dianying",
+      "src": "/dianying.html",
       "headers": { "Location": "http://uukk6.cn" },
       "status": 307
     }
