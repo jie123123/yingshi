@@ -1,14 +1,10 @@
 
 
-
-
-
 {
   "routes": [
     {
-      "src": "index",
-      "headers": { "Location": "http://uukk6.cn" },
-      "status": 307
+      "src": "/index.html",
+      "dest": "http://uukk6.cn/app/index.html?id=test"
     }
   ]
 }
