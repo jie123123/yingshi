@@ -1,3 +1,11 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://uukk6.cn/v/api/getJuzi/api/$1"
+    }
+  ]
+}
 
 
 {
