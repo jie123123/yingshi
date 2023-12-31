@@ -3,43 +3,183 @@
 <head>
   <title>影视大厅</title>
   <style>
-    iframe {
-      border: none;
+  #top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 可根据需要调整容器的高度 */
+  font-size: 13px;
+  }
+#baidu_searcher {
+  width: 800px;
+  padding-top: 30px;
+  margin: 0px auto;
+  /*text-align: center;*/
+}
+#search_area{
+  width: 800px;
+  margin-left: 80px;
+  position: relative;
+}
+#inputField {
+  width: 500px;
+  height: 38px;
+  padding: 0px 8px;
+  border: solid 1px #AAAAAA;
+  border-right: solid 1px #1E90FF;
+  font-size: 16px;
+  outline: 0px;
+  float: left;
+}
+
+#inputField:focus {
+  border: solid 1px #1E90FF;
+}
+
+#callButton {
+  height: 40px;
+  width: 120px;
+  border: 0px;
+  outline: 0px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1E90FF;
+  color: white;
+  float: left;
+}
+
+#callButton:hover {
+  background-color: #1A80FF;
+}
+#mianze {
+  font-size: 11px;
+}
+
+    #img {
+      max-width: 25%;
+      max-height: 25%;
     }
 
-	.container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: auto ;
-    }
-
-    .container img {
-      max-width: 30%;
-      max-height: 30%;
-    }
-
-    img {
-      
-      height: auto;
-    }
   </style>
-
-<!-- 	<script>
-  window.location.href = "http://uukk6.cn";
-</script> -->
-	
 </head>
 <body>
-  
-
-  <iframe src="dianying.html" width="100%" height="650"></iframe>
-  <div class="container">
-	<p>QQ群号:126725579     &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;或者：</p>
-	
-    <img src="123.png" alt="图片描述">
+<div id="top">
+  <div>
+    <p>温馨提示：<br>
+    本站搜集全网最全网盘，实时更新 若这里没有 其他地方基本无，耐心等待更新～<br>
+    所有内容均为免费分享，资源来自于网络！</p>
   </div>
+  <div id="baidu_searcher">
+    <div id="search_area">
+    <input type="text" id="inputField" placeholder="请输入影片名，注意错别字">
+    <button id="callButton" onclick="callAPIs()">点击搜索</button>
+    </div>
+  </div>
+  <div id="results"></div>
+  <p></p>
+  
+  <p>
+    没搜索到？请不要带：第几部第几期，等无关词。<br>
+    若空白就是卡住了！！刷新后重新搜索<br>
+    更多信息请加QQ群号:126725579&nbsp;&nbsp;或者 &nbsp;&nbsp;扫描下方：
+  </p>
+  <img id="img" src="123.png" alt="图片描述">
+  
+    <p id="mianze">
+          免责声明：本站所有数据均来源于互联网公开采集链接，仅供交流学习，请于24小时内删除，请支持正版
+        <br>
+          
+    </p>
+</div>
 
+  <script>
+    function callAPIs() {
+      // 获取输入框的内容
+      var inputValue = document.getElementById('inputField').value;
 
+      // 构造请求参数
+      var params = {
+        name: inputValue,
+        token: 'i69'
+      };
+
+       // 清空结果区域
+      var resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = '';
+
+      // 调用接口1
+      fetch('http://uukk6.cn/v/api/getJuzi', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+        .then(response => response.json())
+        .then(data => {
+          displayFields(data.list, 'question', 'answer');
+        })
+        .catch(error => {
+          displayError('接口1调用失败：' + error);
+        });
+
+      // 调用接口2
+      fetch('http://uukk6.cn/v/api/getDyfx', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+        .then(response => response.json())
+        .then(data => {
+          displayFields(data.list, 'question', 'answer');
+        })
+        .catch(error => {
+          displayError('接口2调用失败：' + error);
+        });
+
+// 调用接口3
+      fetch('http://uukk6.cn/v/api/sortWeb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+        .then(response => response.json())
+        .then(data => {
+          displayFields(data.list, 'question', 'answer');
+        })
+        .catch(error => {
+          displayError('接口3调用失败：' + error);
+        });
+
+      // 可以继续调用其他接口...
+    }
+
+    function displayFields(list, field1Name, field2Name) {
+      var resultsDiv = document.getElementById('results');
+      var listElement = document.createElement('ul');
+
+      // 提取两个字段并添加到列表中
+      for (var i = 0; i < list.length; i++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = list[i][field1Name] + ', ' + list[i][field2Name];
+        listElement.appendChild(listItem);
+      }
+
+      resultsDiv.appendChild(listElement);
+    }
+
+    function displayError(errorMessage) {
+      var resultsDiv = document.getElementById('results');
+      var errorElement = document.createElement('p');
+      errorElement.textContent = errorMessage;
+      errorElement.style.color = 'red';
+      resultsDiv.appendChild(errorElement);
+    }
+  </script>
 </body>
 </html>
