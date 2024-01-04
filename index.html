@@ -1,36 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>影视大厅</title>
   <style>
+   /* CSS 样式 */  
+    body {  
+      font-family: Arial, sans-serif;  
+      margin: 0;  
+      padding: 0;  
+    }  
+  
+ 
+
   #top {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* 可根据需要调整容器的高度 */
+  height: 100vh;  /* 可根据需要调整容器的高度 */
   font-size: 13px;
   }
+   /* 
 #baidu_searcher {
   width: 800px;
   padding-top: 30px;
   margin: 0px auto;
   /*text-align: center;*/
+
 }
 #search_area{
-  width: 800px;
+  /*width: 800px;
   margin-left: 80px;
-  position: relative;
+  position: relative;*/
+  text-align: center;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+
 }
 #inputField {
-  width: 500px;
-  height: 38px;
-  padding: 0px 8px;
-  border: solid 1px #AAAAAA;
+  flex: 1;
+      max-width: 400px;
+      padding: 10px;
+      font-size: 16px;
+      border: solid 1px #AAAAAA;
   border-right: solid 1px #1E90FF;
-  font-size: 16px;
-  outline: 0px;
-  float: left;
+      
 }
 
 #inputField:focus {
@@ -38,15 +56,13 @@
 }
 
 #callButton {
-  height: 40px;
-  width: 120px;
-  border: 0px;
-  outline: 0px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #1E90FF;
-  color: white;
-  float: left;
+   margin-left: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      cursor: pointer;
 }
 
 #callButton:hover {
@@ -54,25 +70,31 @@
 }
 #mianze {
   font-size: 11px;
+  padding: 10px 5px;
+}
+#wenzi{
+  padding: 10px 10px;
 }
 
     #img {
-      max-width: 25%;
-      max-height: 25%;
+      max-width: 70%;
+      max-height: 70%;
     }
+
+
 
   </style>
 </head>
 <body>
 <div id="top">
-  <div>
+  <div id="wenzi">
     <p>温馨提示：<br>
     本站搜集全网最全网盘，实时更新 若这里没有 其他地方基本无，耐心等待更新～<br>
     所有内容均为免费分享，资源来自于网络！</p>
   </div>
   <div id="baidu_searcher">
     <div id="search_area">
-    <input type="text" id="inputField" placeholder="请输入影片名，注意错别字">
+    <input type="text" id="inputField" placeholder="请输入影片名">
     <button id="callButton" onclick="callAPIs()">点击搜索</button>
     </div>
   </div>
@@ -86,7 +108,7 @@
   </p>
   <img id="img" src="123.png" alt="图片描述">
   
-    <p id="mianze">
+    <p id="mianze" >
           免责声明：本站所有数据均来源于互联网公开采集链接，仅供交流学习，请于24小时内删除，请支持正版
         <br>
           
