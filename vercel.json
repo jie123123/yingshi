@@ -1,18 +1,1 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "http://uukk6.cn/v/api/getJuzi/api/$1"
-    }
-  ]
-}
 
-
-{
-  "routes": [
-    {
-      "src": "/index.html",
-      "dest": "http://uukk6.cn/app/index.html?id=test"
-    }
-  ]
-}
