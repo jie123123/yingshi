@@ -105,9 +105,9 @@
   <p>
     没搜索到？请不要带：第几部第几期，等无关词。<br>
     若空白就是卡住了！！刷新后重新搜索<br>
-    更多信息请加QQ群号:126725579&nbsp;&nbsp;或者 &nbsp;&nbsp;扫描下方：
+    更多信息请加QQ群号:126725579&nbsp;&nbsp;或者 &nbsp;&nbsp;关注公众号【阿杰圈】
   </p>
-  <img id="img" src="123.png" alt="图片描述">
+// <img id="img" src="123.png" alt="图片描述">
   
     <p id="mianze" >
           免责声明：本站所有数据均来源于互联网公开采集链接，仅供交流学习，请于24小时内删除，请支持正版
@@ -132,7 +132,7 @@
       resultsDiv.innerHTML = '';
 
       // 调用接口1
-      fetch('http://uukk6.cn/v/api/getJuzi', {
+      fetch('http://ee.rtshear.com/v/api/getJuzi', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -148,7 +148,7 @@
         });
 
       // 调用接口2
-      fetch('http://uukk6.cn/v/api/getDyfx', {
+      fetch('http://ee.rtshear.com/v/api/sortWeb', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -164,7 +164,7 @@
         });
 
 // 调用接口3
-      fetch('http://uukk6.cn/v/api/sortWeb', {
+      fetch('http://ee.rtshear.com/v/api/getDyfx', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
